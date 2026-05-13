@@ -8,6 +8,11 @@
 [node name="Jyväskylä" type="Node2D" unique_id=169649765]
 script = ExtResource("1_6quri")
 
+[node name="Map" type="Sprite2D" parent="." unique_id=1647860186]
+scale = Vector2(1.5054687, 1.4337662)
+texture = ExtResource("4_bmjhr")
+centered = false
+
 [node name="Route" type="Node2D" parent="." unique_id=739402860]
 editor_description = "Aamu luento (Ylistö)
 Aamu demot (Mattilanniemi)
@@ -26,8 +31,8 @@ sekoilua??? (Nisula)
 Kotiin nukkumaan (Kortepohja)"
 scale = Vector2(1.5054687, 1.4337662)
 script = ExtResource("2_bmjhr")
-starting_point = NodePath("Ylistönrinne")
-ending_point = NodePath("Kortsu")
+starting_point_path = NodePath("Ylistönrinne")
+ending_point_path = NodePath("Kortsu")
 
 [node name="Ylistönrinne" parent="Route" unique_id=544629422 instance=ExtResource("3_bmjhr")]
 position = Vector2(862.18994, 1067.817)
@@ -47,11 +52,6 @@ next_points = Array[NodePath]([NodePath("../Kortsu")])
 
 [node name="Kortsu" parent="Route" unique_id=590819695 instance=ExtResource("3_bmjhr")]
 position = Vector2(249.75609, 236.44022)
-
-[node name="Map" type="Sprite2D" parent="." unique_id=1647860186]
-scale = Vector2(1.5054687, 1.4337662)
-texture = ExtResource("4_bmjhr")
-centered = false
 
 [node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
 

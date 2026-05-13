@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dh1qqia8418i5"]
+
+[ext_resource type="Script" uid="uid://bj78ky02dhmpf" path="res://scripts/map_path.gd" id="1_nxvwn"]
+[ext_resource type="Shader" uid="uid://cqgck4rla8md" path="res://shaders/map_path.gdshader" id="2_4o4w2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7wpkv"]
+shader = ExtResource("2_4o4w2")
+shader_parameter/color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_t4muo"]
+
+[node name="MapPath" type="Node2D" unique_id=1034838547]
+script = ExtResource("1_nxvwn")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=900013843]
+material = SubResource("ShaderMaterial_7wpkv")
+position = Vector2(9.999999, 0)
+scale = Vector2(20.76, 20)
+mesh = SubResource("QuadMesh_t4muo")

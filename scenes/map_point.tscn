@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://cbj03hd260s4b"]
 
 [ext_resource type="Script" uid="uid://da2isghyvnnv7" path="res://scripts/map_point.gd" id="1_q7y3x"]
+[ext_resource type="Shader" uid="uid://bnph8gef0rv8u" path="res://shaders/map_point.gdshader" id="2_potrg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wbbje"]
+shader = ExtResource("2_potrg")
+shader_parameter/color = Color(1, 0.0051897764, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ikfd2"]
+size = Vector2(20, 20)
 
 [node name="MapPoint" type="Node2D" unique_id=544629422]
 script = ExtResource("1_q7y3x")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=779836370]
+z_index = 1
+material = SubResource("ShaderMaterial_wbbje")
+mesh = SubResource("QuadMesh_ikfd2")
