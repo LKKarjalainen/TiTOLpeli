@@ -20,16 +20,13 @@ text = "TiTOLPeli"
 label_settings = SubResource("LabelSettings_o5qli")
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="Menu" unique_id=2056818328]
-layout_mode = 2
-text = "Start!"
-
 [node name="Teams" type="GridContainer" parent="Menu" unique_id=1887421924]
 layout_mode = 2
 columns = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/Teams" unique_id=957160936]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="Menu/Teams/VBoxContainer" unique_id=1756120791]
 layout_mode = 2
@@ -37,3 +34,7 @@ text = "Tiimi 1"
 
 [node name="LineEdit" type="LineEdit" parent="Menu/Teams/VBoxContainer" unique_id=1171658506]
 layout_mode = 2
+
+[node name="Start" type="Button" parent="Menu" unique_id=2056818328]
+layout_mode = 2
+text = "Start!"
