@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw7alj83uteah"
-path="res://.godot/imported/jkl_placeholder.jpg-7ce9412185f9c80ac7e4199724d80014.ctex"
+uid="uid://dbegrt5761pee"
+path="res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cities/jkl_placeholder.jpg"
-dest_files=["res://.godot/imported/jkl_placeholder.jpg-7ce9412185f9c80ac7e4199724d80014.ctex"]
+source_file="res://assets/cities/jkl.png"
+dest_files=["res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"]
 
 [params]
 
