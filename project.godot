@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="TiTOLpeli"
+run/main_scene="uid://dt03j7hilu23v"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 

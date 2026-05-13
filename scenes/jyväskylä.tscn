@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://k1x04xq7ruv2"]
+
+[ext_resource type="Script" uid="uid://cqh7876rjxhks" path="res://scripts/game.gd" id="1_6quri"]
+[ext_resource type="Texture2D" uid="uid://dw7alj83uteah" path="res://assets/cities/jkl_placeholder.jpg" id="2_n0uxc"]
+
+[node name="Jyväskylä" type="Node2D" unique_id=169649765]
+script = ExtResource("1_6quri")
+
+[node name="Karttakuva" type="Sprite2D" parent="." unique_id=1647860186]
+scale = Vector2(1.5054687, 1.4337662)
+texture = ExtResource("2_n0uxc")
+centered = false
+
+[node name="Polku" type="Node2D" parent="Karttakuva" unique_id=739402860]
+
+[node name="Piste" type="Area2D" parent="Karttakuva/Polku" unique_id=514846102]
+
+[node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
+
+[node name="EsimerkkiPelaaja" type="CharacterBody2D" parent="Pelaajat" unique_id=1221456393]
