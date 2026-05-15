@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="2_bmjhr"]
 [ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="3_bmjhr"]
 [ext_resource type="Texture2D" uid="uid://dbegrt5761pee" path="res://assets/cities/jkl.png" id="4_bmjhr"]
+[ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="5_75ljs"]
 
 [node name="Jyväskylä" type="Node2D" unique_id=169649765]
 script = ExtResource("1_6quri")
@@ -56,3 +57,6 @@ position = Vector2(249.75609, 236.44022)
 [node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
 
 [node name="EsimerkkiPelaaja" type="CharacterBody2D" parent="Pelaajat" unique_id=1221456393]
+
+[node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("5_75ljs")]
+position = Vector2(1191, 1204)
