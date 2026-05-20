@@ -60,3 +60,4 @@ position = Vector2(249.75609, 236.44022)
 
 [node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("5_75ljs")]
 position = Vector2(1191, 1204)
+bounds = Rect2(0, 0, 2260, 1740)
