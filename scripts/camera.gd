@@ -37,6 +37,10 @@ func _ready() -> void:
 	set_process(false)
 
 
+var multitouch_positions = {}
+var last_multitouch_positions = {}
+
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		match event.button_index:
@@ -63,15 +67,44 @@ func _input(event: InputEvent) -> void:
 		_move_view(amount)
 		_last_mouse_position = event.position
 
-	elif event is InputEventScreenDrag: 
+	elif event is InputEventScreenTouch:
 		print("Multitouch event, index %s" % event.index)
+		if event.pressed:
+			multitouch_positions[event.index] = event.position
+		else:
+			multitouch_positions.erase(event.index)
+		
+		# Zoom
+		if multitouch_positions.size() >= 2:
+			var finger1 = multitouch_positions.get(0)
+			var finger2 = multitouch_positions.get(1)
+			var last_finger1 = last_multitouch_positions.get(0)
+			var last_finger2 = last_multitouch_positions.get(1)
+			if not finger1 or not finger2 or not last_finger1 or not last_finger2:
+				# TODO: Support more than 2 fingers at a time
+				return
+			var finger_distance = finger1.distance_to(finger2)
+			var last_finger_distance = last_finger1.distance_to(last_finger2)
+
+			real_zoom *= finger_distance / last_finger_distance
+
+		# Movement
+		if multitouch_positions.size() >= 1:
+			if len(multitouch_positions) == len(last_multitouch_positions):
+				var sum = func(a,b): return a + b
+				var positions = len(multitouch_positions)
+				var average_position = multitouch_positions.values().reduce(sum, Vector2.ZERO) / Vector2(positions, positions)
+				var last_average_position = last_multitouch_positions.values().reduce(sum, Vector2.ZERO) / Vector2(positions, positions)
+				_move_view(average_position - last_average_position)
+		
+		last_multitouch_positions = multitouch_positions
 
 
 func _process(_delta: float) -> void:
 	_move_view(Vector2.ZERO)
 
 
-# Moves camera but keeps the view in bounds
+# Moves camera keeping the view in bounds
 func _move_view(amount: Vector2) -> void:
 	# Get camera bounds
 	var viewport_size := get_viewport_rect().size
