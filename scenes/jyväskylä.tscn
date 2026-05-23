@@ -49,6 +49,54 @@ next_points = Array[NodePath]([NodePath("../Ruusupuisto")])
 
 [node name="Ruusupuisto" parent="Route" unique_id=1463562081 instance=ExtResource("3_bmjhr")]
 position = Vector2(662.2522, 873.9221)
+next_points = Array[NodePath]([NodePath("../Lounaispuisto")])
+
+[node name="Lounaispuisto" parent="Route" unique_id=746958422 instance=ExtResource("3_bmjhr")]
+position = Vector2(783.809, 727.4547)
+next_points = Array[NodePath]([NodePath("../Kirkkopuisto")])
+
+[node name="Kirkkopuisto" parent="Route" unique_id=255923612 instance=ExtResource("3_bmjhr")]
+position = Vector2(933.92834, 570.5254)
+next_points = Array[NodePath]([NodePath("../Ephesus")])
+
+[node name="Ephesus" parent="Route" unique_id=1363487751 instance=ExtResource("3_bmjhr")]
+position = Vector2(1018.9518, 364.0761)
+next_points = Array[NodePath]([NodePath("../JatkotEscape"), NodePath("../JatkotFreetime")])
+
+[node name="JatkotEscape" parent="Route" unique_id=1918997704 instance=ExtResource("3_bmjhr")]
+position = Vector2(1073.4199, 418.47824)
+next_points = Array[NodePath]([NodePath("../EscapeJono"), NodePath("../JatkojenJatkojenJatkot"), NodePath("../Sekoilua")])
+
+[node name="JatkotFreetime" parent="Route" unique_id=677282445 instance=ExtResource("3_bmjhr")]
+position = Vector2(1025.5942, 454.0489)
+next_points = Array[NodePath]([NodePath("../JatkojenJatkojenJatkot"), NodePath("../Sekoilua2")])
+
+[node name="JatkojenJatkojenJatkot" parent="Route" unique_id=1898070849 instance=ExtResource("3_bmjhr")]
+position = Vector2(1205.6046, 378.02533)
+next_points = Array[NodePath]([NodePath("../Kortsu")])
+
+[node name="EscapeJono" parent="Route" unique_id=1089059239 instance=ExtResource("3_bmjhr")]
+position = Vector2(1040.2076, 417.0833)
+next_points = Array[NodePath]([NodePath("../Kortsu"), NodePath("../Sekoilua3")])
+
+[node name="Pasargad" parent="Route" unique_id=699105040 instance=ExtResource("3_bmjhr")]
+position = Vector2(999.68866, 406.62134)
+next_points = Array[NodePath]([NodePath("../Sekoilua3")])
+
+[node name="Sekoilua" parent="Route" unique_id=842400282 instance=ExtResource("3_bmjhr")]
+position = Vector2(722.03424, 235.74275)
+next_points = Array[NodePath]([NodePath("../Kortsu")])
+
+[node name="Sekoilua2" parent="Route" unique_id=433917443 instance=ExtResource("3_bmjhr")]
+position = Vector2(689.4862, 397.55432)
+next_points = Array[NodePath]([NodePath("../Savelan24h")])
+
+[node name="Sekoilua3" parent="Route" unique_id=30400943 instance=ExtResource("3_bmjhr")]
+position = Vector2(627.04724, 569.13043)
+next_points = Array[NodePath]([NodePath("../Savelan24h")])
+
+[node name="Savelan24h" parent="Route" unique_id=514868756 instance=ExtResource("3_bmjhr")]
+position = Vector2(106.94342, 412.2011)
 next_points = Array[NodePath]([NodePath("../Kortsu")])
 
 [node name="Kortsu" parent="Route" unique_id=590819695 instance=ExtResource("3_bmjhr")]
