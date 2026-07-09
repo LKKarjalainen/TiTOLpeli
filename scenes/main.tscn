@@ -32,8 +32,9 @@ alignment = 1
 layout_mode = 2
 text = "Tiimi 1"
 
-[node name="LineEdit" type="LineEdit" parent="Menu/Teams/VBoxContainer" unique_id=1171658506]
+[node name="Name" type="LineEdit" parent="Menu/Teams/VBoxContainer" unique_id=1171658506]
 layout_mode = 2
+text = "wasd"
 
 [node name="Start" type="Button" parent="Menu" unique_id=2056818328]
 layout_mode = 2

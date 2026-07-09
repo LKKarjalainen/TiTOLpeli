@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx2jlb42xwhvf"
-path="res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"
+uid="uid://x3f5bewtitgu"
+path="res://.godot/imported/linkki-logo-simple.svg-f586e049289825759eef5072c6b1e7d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cities/jkl.png"
-dest_files=["res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"]
+source_file="res://assets/players/linkki-logo-simple.svg"
+dest_files=["res://.godot/imported/linkki-logo-simple.svg-f586e049289825759eef5072c6b1e7d1.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
