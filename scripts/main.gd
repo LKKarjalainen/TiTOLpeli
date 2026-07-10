@@ -1,7 +1,8 @@
 extends Node2D
 
 var cities = ["Jyväskylä", "Tampere", "Helsinki", "Turku", "Oulu", "Kuopio", "Joensuu"]
-var jkl = preload("res://scenes/jyväskylä.tscn")
+var jkl = preload("res://scenes/Jyväskylä.tscn")
+var tampere = preload("res://scenes/Tampere.tscn")
 var team_names: Array[String] = [] # Easy access to names
 
 @onready var menu = get_node("Menu")
@@ -21,13 +22,11 @@ func instansiate_team():
 func setup_teams():
 	for team in teams_info.get_children():
 		var team_name = team.get_node("Name").text
-		print(team_name)
 		if team_name == "":
 			teams_info.remove_child(team)
 			continue
 		team_names.append(team_name)
-		print(teams_info)
-		print(team_names)
+	print_debug("Setup teams:", team_names)
 
 
 func add_team_to_hud(hud_list: Control, team_name: String):
@@ -45,7 +44,7 @@ func add_team_to_hud(hud_list: Control, team_name: String):
 func _on_start_pressed():
 	setup_teams()
 	
-	var kaupunki = jkl.instantiate()
+	var kaupunki = tampere.instantiate()
 	add_child(kaupunki)
 	
 	var hud_teamslist = kaupunki.get_node("HUD/TeamsList")

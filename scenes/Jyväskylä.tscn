@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://k1x04xq7ruv2"]
 
-[ext_resource type="Script" uid="uid://cqh7876rjxhks" path="res://scripts/Jyväskylä.gd" id="1_6quri"]
-[ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="2_bmjhr"]
-[ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="3_bmjhr"]
-[ext_resource type="Texture2D" uid="uid://cx2jlb42xwhvf" path="res://assets/cities/jkl.png" id="4_bmjhr"]
-[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/players/linkki-logo-simple.svg" id="5_2mp3b"]
-[ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="5_75ljs"]
-[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/players/red-pacman.png" id="6_7ug5j"]
+[ext_resource type="Script" uid="uid://cqh7876rjxhks" path="res://scripts/Jyväskylä.gd" id="1_0l0jd"]
+[ext_resource type="Texture2D" uid="uid://cx2jlb42xwhvf" path="res://assets/cities/Jyväskylä.png" id="2_swh5w"]
+[ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="3_muw3f"]
+[ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="4_ktabn"]
+[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/players/linkki-logo-simple.svg" id="5_jwe04"]
+[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/players/red-pacman.png" id="6_ko4ve"]
+[ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="7_k6fn7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_75ljs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_2mp3b")
+"texture": ExtResource("5_jwe04")
 }],
 "loop": true,
 "name": &"idle",
@@ -20,7 +20,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_7ug5j")
+"texture": ExtResource("6_ko4ve")
 }],
 "loop": true,
 "name": &"move",
@@ -28,11 +28,11 @@ animations = [{
 }]
 
 [node name="Jyväskylä" type="Node2D" unique_id=169649765]
-script = ExtResource("1_6quri")
+script = ExtResource("1_0l0jd")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1647860186]
 scale = Vector2(1.5054687, 1.4337662)
-texture = ExtResource("4_bmjhr")
+texture = ExtResource("2_swh5w")
 centered = false
 
 [node name="Route" type="Node2D" parent="." unique_id=739402860]
@@ -52,75 +52,75 @@ sekoilua??? (Nisula)
 24h kauppa (Savela S)
 Kotiin nukkumaan (Kortepohja)"
 scale = Vector2(1.5054687, 1.4337662)
-script = ExtResource("2_bmjhr")
+script = ExtResource("3_muw3f")
 starting_point_path = NodePath("Ylistönrinne")
 ending_point_path = NodePath("Kortsu")
 
-[node name="Ylistönrinne" parent="Route" unique_id=544629422 instance=ExtResource("3_bmjhr")]
+[node name="Ylistönrinne" parent="Route" unique_id=544629422 instance=ExtResource("4_ktabn")]
 position = Vector2(862.18994, 1067.817)
 next_points = Array[NodePath]([NodePath("../Mattilanniemi")])
 
-[node name="Mattilanniemi" parent="Route" unique_id=792521964 instance=ExtResource("3_bmjhr")]
+[node name="Mattilanniemi" parent="Route" unique_id=792521964 instance=ExtResource("4_ktabn")]
 position = Vector2(684.1723, 992.4909)
 next_points = Array[NodePath]([NodePath("../Kattila")])
 
-[node name="Kattila" parent="Route" unique_id=1662571527 instance=ExtResource("3_bmjhr")]
+[node name="Kattila" parent="Route" unique_id=1662571527 instance=ExtResource("4_ktabn")]
 position = Vector2(743.95435, 956.9202)
 next_points = Array[NodePath]([NodePath("../Ruusupuisto")])
 
-[node name="Ruusupuisto" parent="Route" unique_id=1463562081 instance=ExtResource("3_bmjhr")]
+[node name="Ruusupuisto" parent="Route" unique_id=1463562081 instance=ExtResource("4_ktabn")]
 position = Vector2(662.2522, 873.9221)
 next_points = Array[NodePath]([NodePath("../Lounaispuisto")])
 
-[node name="Lounaispuisto" parent="Route" unique_id=746958422 instance=ExtResource("3_bmjhr")]
+[node name="Lounaispuisto" parent="Route" unique_id=746958422 instance=ExtResource("4_ktabn")]
 position = Vector2(783.809, 727.4547)
 next_points = Array[NodePath]([NodePath("../Kirkkopuisto")])
 
-[node name="Kirkkopuisto" parent="Route" unique_id=255923612 instance=ExtResource("3_bmjhr")]
+[node name="Kirkkopuisto" parent="Route" unique_id=255923612 instance=ExtResource("4_ktabn")]
 position = Vector2(933.92834, 570.5254)
 next_points = Array[NodePath]([NodePath("../Ephesus")])
 
-[node name="Ephesus" parent="Route" unique_id=1363487751 instance=ExtResource("3_bmjhr")]
+[node name="Ephesus" parent="Route" unique_id=1363487751 instance=ExtResource("4_ktabn")]
 position = Vector2(1018.9518, 364.0761)
 next_points = Array[NodePath]([NodePath("../JatkotEscape"), NodePath("../JatkotFreetime")])
 
-[node name="JatkotEscape" parent="Route" unique_id=1918997704 instance=ExtResource("3_bmjhr")]
+[node name="JatkotEscape" parent="Route" unique_id=1918997704 instance=ExtResource("4_ktabn")]
 position = Vector2(1073.4199, 418.47824)
 next_points = Array[NodePath]([NodePath("../EscapeJono"), NodePath("../JatkojenJatkojenJatkot"), NodePath("../Sekoilua")])
 
-[node name="JatkotFreetime" parent="Route" unique_id=677282445 instance=ExtResource("3_bmjhr")]
+[node name="JatkotFreetime" parent="Route" unique_id=677282445 instance=ExtResource("4_ktabn")]
 position = Vector2(1025.5942, 454.0489)
 next_points = Array[NodePath]([NodePath("../JatkojenJatkojenJatkot"), NodePath("../Sekoilua2")])
 
-[node name="JatkojenJatkojenJatkot" parent="Route" unique_id=1898070849 instance=ExtResource("3_bmjhr")]
+[node name="JatkojenJatkojenJatkot" parent="Route" unique_id=1898070849 instance=ExtResource("4_ktabn")]
 position = Vector2(1205.6046, 378.02533)
 next_points = Array[NodePath]([NodePath("../Kortsu")])
 
-[node name="EscapeJono" parent="Route" unique_id=1089059239 instance=ExtResource("3_bmjhr")]
+[node name="EscapeJono" parent="Route" unique_id=1089059239 instance=ExtResource("4_ktabn")]
 position = Vector2(1040.2076, 417.0833)
 next_points = Array[NodePath]([NodePath("../Kortsu"), NodePath("../Sekoilua3")])
 
-[node name="Pasargad" parent="Route" unique_id=699105040 instance=ExtResource("3_bmjhr")]
+[node name="Pasargad" parent="Route" unique_id=699105040 instance=ExtResource("4_ktabn")]
 position = Vector2(999.68866, 406.62134)
 next_points = Array[NodePath]([NodePath("../Sekoilua3")])
 
-[node name="Sekoilua" parent="Route" unique_id=842400282 instance=ExtResource("3_bmjhr")]
+[node name="Sekoilua" parent="Route" unique_id=842400282 instance=ExtResource("4_ktabn")]
 position = Vector2(722.03424, 235.74275)
 next_points = Array[NodePath]([NodePath("../Kortsu")])
 
-[node name="Sekoilua2" parent="Route" unique_id=433917443 instance=ExtResource("3_bmjhr")]
+[node name="Sekoilua2" parent="Route" unique_id=433917443 instance=ExtResource("4_ktabn")]
 position = Vector2(689.4862, 397.55432)
 next_points = Array[NodePath]([NodePath("../Savelan24h")])
 
-[node name="Sekoilua3" parent="Route" unique_id=30400943 instance=ExtResource("3_bmjhr")]
+[node name="Sekoilua3" parent="Route" unique_id=30400943 instance=ExtResource("4_ktabn")]
 position = Vector2(627.04724, 569.13043)
 next_points = Array[NodePath]([NodePath("../Savelan24h")])
 
-[node name="Savelan24h" parent="Route" unique_id=514868756 instance=ExtResource("3_bmjhr")]
+[node name="Savelan24h" parent="Route" unique_id=514868756 instance=ExtResource("4_ktabn")]
 position = Vector2(106.94342, 412.2011)
 next_points = Array[NodePath]([NodePath("../Kortsu")])
 
-[node name="Kortsu" parent="Route" unique_id=590819695 instance=ExtResource("3_bmjhr")]
+[node name="Kortsu" parent="Route" unique_id=590819695 instance=ExtResource("4_ktabn")]
 position = Vector2(249.75609, 236.44022)
 
 [node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
@@ -135,7 +135,7 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_75ljs")
 animation = &"idle"
 
-[node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("5_75ljs")]
+[node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("7_k6fn7")]
 position = Vector2(1191, 1204)
 bounds = Rect2(0, 0, 2260, 1740)
 

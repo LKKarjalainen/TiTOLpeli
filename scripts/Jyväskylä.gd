@@ -24,7 +24,8 @@ func start_game(options: Dictionary) -> void:
 		_validate_game_options(options)
 
 func format_hud():
-	print("Kattellaa syssymmällä")
+	print_debug("Kattellaa syssymmällä")
 
 func _ready() -> void:
 	format_hud()
+	

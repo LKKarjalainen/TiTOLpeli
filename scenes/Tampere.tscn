@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cdfs1t35xmym7"]
+
+[ext_resource type="Texture2D" uid="uid://bxeheuggv8vxc" path="res://assets/cities/Tampere.png" id="1_t3ppg"]
+[ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="2_58j6p"]
+[ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="3_brgbt"]
+[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/players/linkki-logo-simple.svg" id="4_mfpiu"]
+[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/players/red-pacman.png" id="5_0apd4"]
+[ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="6_fw1rj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dd32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mfpiu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0apd4")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[node name="Tampere" type="Node2D" unique_id=888834655]
+
+[node name="Map" type="Sprite2D" parent="." unique_id=610604157]
+scale = Vector2(1.5054687, 1.4337662)
+texture = ExtResource("1_t3ppg")
+centered = false
+
+[node name="Route" type="Node2D" parent="." unique_id=1849686106]
+editor_description = "Aamu luento (Ylistö)
+Aamu demot (Mattilanniemi)
+Hengaa Kattilassa (Agora)
+Iltapäivä luento (Ruusupuisto)
+Tapahtuma (Lounaispuisto)
+Vätköt (Kirkkopuisto)
+Väliruoka (Ephesus)
+Jatkot (FreeTime tai Escape)
+Jatkojen jatkot (Escape tai FreeTime)
+Välikuolema (Escin jono)
+Jatkojen jatkojen jatkot (Jyscape)
+RUOKAA (Pasargad)
+sekoilua??? (Nisula)
+24h kauppa (Savela S)
+Kotiin nukkumaan (Kortepohja)"
+scale = Vector2(1.5054687, 1.4337662)
+script = ExtResource("2_58j6p")
+starting_point_path = NodePath("Japanilaiset")
+ending_point_path = NodePath("Liikemiehet")
+
+[node name="Japanilaiset" parent="Route" unique_id=544629422 instance=ExtResource("3_brgbt")]
+position = Vector2(755.2465, 474.97284)
+next_points = Array[NodePath]([NodePath("../Ultrapaskaa")])
+
+[node name="Ultrapaskaa" parent="Route" unique_id=1844417345 instance=ExtResource("3_brgbt")]
+position = Vector2(730.0052, 584.4746)
+next_points = Array[NodePath]([NodePath("../Liikemiehet")])
+
+[node name="Liikemiehet" parent="Route" unique_id=1513811290 instance=ExtResource("3_brgbt")]
+position = Vector2(613.76245, 516.8207)
+
+[node name="Pelaajat" type="Node2D" parent="." unique_id=1767125995]
+
+[node name="EsimerkkiPelaaja" type="CharacterBody2D" parent="Pelaajat" unique_id=1082735659]
+position = Vector2(940, 601)
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pelaajat/EsimerkkiPelaaja" unique_id=552443406]
+rotation = -1.5707964
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_4dd32")
+animation = &"idle"
+
+[node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("6_fw1rj")]
+position = Vector2(1982, 1304)
+bounds = Rect2(0, 0, 2260, 1740)
+
+[node name="HUD" type="Control" parent="." unique_id=1517773192]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 103.0
+offset_bottom = 102.0
+metadata/_edit_use_anchors_ = true
+
+[node name="NextNode" type="Button" parent="HUD" unique_id=1672648751]
+layout_mode = 0
+offset_left = 1088.0
+offset_top = 947.0
+offset_right = 1472.0
+offset_bottom = 1197.0
+text = "Liiku seuraavaan"
+
+[node name="TeamsList" type="VBoxContainer" parent="HUD" unique_id=1033897580]
+layout_mode = 0
+offset_left = 571.0
+offset_top = 972.0
+offset_right = 970.0
+offset_bottom = 1357.0

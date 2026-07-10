@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx2jlb42xwhvf"
-path="res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"
+uid="uid://bxeheuggv8vxc"
+path="res://.godot/imported/Tampere.png-248187765abb4aa199f210d70a0d44b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cities/jkl.png"
-dest_files=["res://.godot/imported/jkl.png-43b69821851f9cad7b5afc5c0c69a2e5.ctex"]
+source_file="res://assets/cities/Tampere.png"
+dest_files=["res://.godot/imported/Tampere.png-248187765abb4aa199f210d70a0d44b1.ctex"]
 
 [params]
 
