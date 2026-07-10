@@ -31,6 +31,7 @@ func setup_teams():
 
 
 func add_team_to_hud(hud_list: Control, team_name: String):
+	# TODO: Polish HUD to look good.
 	var team = Label.new()
 	team.text = team_name
 	team.set_size(Vector2(200, 30))
@@ -40,7 +41,7 @@ func add_team_to_hud(hud_list: Control, team_name: String):
 	hud_list.add_child(team)
 
 
-# Start first game
+# Start first game. TODO: Choose city randomly and option to choose how many games are played.
 func _on_start_pressed():
 	setup_teams()
 	

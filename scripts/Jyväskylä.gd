@@ -1,14 +1,13 @@
 extends Node2D
 
 """
-Contains main game logic
+Contains Jyväskylä game logic
 """
 
 # Propagate mouse events to camera
 func _input(event: InputEvent):
 	if event is InputEventMouse or event is InputEventScreenTouch:
 		$Camera._input(event)
-
 
 func _validate_game_options(options: Dictionary):
 	if not ("teams" in options and typeof(options["teams"] == TYPE_ARRAY)):
@@ -23,3 +22,9 @@ func start_game(options: Dictionary) -> void:
 	# Check given game options
 	if OS.is_debug_build():
 		_validate_game_options(options)
+
+func format_hud():
+	print("Kattellaa syssymmällä")
+
+func _ready() -> void:
+	format_hud()

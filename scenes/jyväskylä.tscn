@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://k1x04xq7ruv2"]
 
-[ext_resource type="Script" uid="uid://cqh7876rjxhks" path="res://scripts/game.gd" id="1_6quri"]
+[ext_resource type="Script" uid="uid://cqh7876rjxhks" path="res://scripts/Jyväskylä.gd" id="1_6quri"]
 [ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="2_bmjhr"]
 [ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="3_bmjhr"]
 [ext_resource type="Texture2D" uid="uid://cx2jlb42xwhvf" path="res://assets/cities/jkl.png" id="4_bmjhr"]
