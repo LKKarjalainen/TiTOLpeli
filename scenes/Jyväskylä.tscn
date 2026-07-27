@@ -126,7 +126,7 @@ position = Vector2(249.75609, 236.44022)
 [node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
 
 [node name="EsimerkkiPelaaja" type="CharacterBody2D" parent="Pelaajat" unique_id=1221456393]
-position = Vector2(1838, 893)
+position = Vector2(1621, 1313)
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pelaajat/EsimerkkiPelaaja" unique_id=1231413733]

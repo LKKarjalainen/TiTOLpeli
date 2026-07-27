@@ -35,7 +35,15 @@ text = "Tiimi 1"
 [node name="Name" type="LineEdit" parent="Menu/Teams/VBoxContainer" unique_id=1171658506]
 layout_mode = 2
 text = "wasd"
+placeholder_text = "Name"
+
+[node name="Size" type="LineEdit" parent="Menu/Teams/VBoxContainer" unique_id=1406965919]
+layout_mode = 2
+text = "2"
+placeholder_text = "Size"
 
 [node name="Start" type="Button" parent="Menu" unique_id=2056818328]
 layout_mode = 2
 text = "Start!"
+
+[node name="Teams" type="Node" parent="." unique_id=715040590]
