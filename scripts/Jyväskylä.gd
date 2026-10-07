@@ -27,7 +27,7 @@ func _validate_game_options(options: Dictionary):
 
 # In jyväskylä peli a team corresponds to one player. Architecture is setup so that other games can have an arbitrary amount of players per team.
 func setup_players():
-	print_debug("Setupping teams")
+	print_debug("Setupping players")
 	for team in teams_info.get_children():
 		var new_player = CharacterBody2D.new()
 		new_player.add_child(team.get_node("Name").duplicate())
@@ -39,6 +39,7 @@ func start_game(options: Dictionary) -> void:
 	# Check given game options
 	if OS.is_debug_build():
 		_validate_game_options(options)
+	print_debug("Alotetaan peli")
 
 
 func format_hud():
