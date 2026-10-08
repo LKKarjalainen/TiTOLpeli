@@ -32,7 +32,6 @@ corner_radius_bottom_left = 12
 script = ExtResource("1_0l0jd")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1647860186]
-visible = false
 scale = Vector2(1.5054687, 1.4337662)
 texture = ExtResource("2_swh5w")
 centered = false
