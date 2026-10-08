@@ -1,0 +1,24 @@
+[
+  {
+	"id": "Matka juoma",
+	"text": "Matka on tylsä ja päätit korkata",
+	"huurteiset": 1
+  },
+  {
+	"id": "Kaveri tarjoo",
+	"text": "Kaverisi tarjoaa juoman",
+	"huurteiset": 0.5
+  },
+  {
+	"id": "Vanha setä tarjoo",
+	"text": "Vanha setämies tarjoilee juomia ja kaikki ilmainen viina on pakko juoda",
+	"huurteiset": 1
+  },
+  {
+	"id": "Alkoholin voimaa",
+	"text": "Holi antaa sinulle voimaa! Pelaat toisen vuoron heti perään",
+	"effects": [
+	  { "type": "extra_turn", "target": "self" }
+	]
+  }
+]

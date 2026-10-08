@@ -4,33 +4,35 @@
 [ext_resource type="Texture2D" uid="uid://cx2jlb42xwhvf" path="res://assets/cities/Jyväskylä.png" id="2_swh5w"]
 [ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="3_muw3f"]
 [ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="4_ktabn"]
-[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/players/linkki-logo-simple.svg" id="5_jwe04"]
-[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/players/red-pacman.png" id="6_ko4ve"]
 [ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="7_k6fn7"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_75ljs"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_jwe04")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_ko4ve")
-}],
-"loop": true,
-"name": &"move",
-"speed": 5.0
-}]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hudpanel"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.1, 0.1, 0.12, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_taskpopup"]
+content_margin_left = 32.0
+content_margin_top = 24.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+bg_color = Color(0.1, 0.1, 0.12, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="Jyväskylä" type="Node2D" unique_id=169649765]
 script = ExtResource("1_0l0jd")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1647860186]
+visible = false
 scale = Vector2(1.5054687, 1.4337662)
 texture = ExtResource("2_swh5w")
 centered = false
@@ -82,7 +84,7 @@ next_points = Array[NodePath]([NodePath("../Ephesus")])
 
 [node name="Ephesus" parent="Route" unique_id=1363487751 instance=ExtResource("4_ktabn")]
 position = Vector2(1018.9518, 364.0761)
-next_points = Array[NodePath]([NodePath("../JatkotEscape"), NodePath("../JatkotFreetime")])
+next_points = Array[NodePath]([NodePath("../JatkotFreetime")])
 
 [node name="JatkotEscape" parent="Route" unique_id=1918997704 instance=ExtResource("4_ktabn")]
 position = Vector2(1073.4199, 418.47824)
@@ -90,11 +92,11 @@ next_points = Array[NodePath]([NodePath("../EscapeJono"), NodePath("../JatkojenJ
 
 [node name="JatkotFreetime" parent="Route" unique_id=677282445 instance=ExtResource("4_ktabn")]
 position = Vector2(1025.5942, 454.0489)
-next_points = Array[NodePath]([NodePath("../JatkojenJatkojenJatkot"), NodePath("../Sekoilua2")])
+next_points = Array[NodePath]([NodePath("../JatkojenJatkojenJatkot")])
 
 [node name="JatkojenJatkojenJatkot" parent="Route" unique_id=1898070849 instance=ExtResource("4_ktabn")]
 position = Vector2(1205.6046, 378.02533)
-next_points = Array[NodePath]([NodePath("../Kortsu")])
+next_points = Array[NodePath]([NodePath("../Sekoilua")])
 
 [node name="EscapeJono" parent="Route" unique_id=1089059239 instance=ExtResource("4_ktabn")]
 position = Vector2(1040.2076, 417.0833)
@@ -123,39 +125,219 @@ next_points = Array[NodePath]([NodePath("../Kortsu")])
 [node name="Kortsu" parent="Route" unique_id=590819695 instance=ExtResource("4_ktabn")]
 position = Vector2(249.75609, 236.44022)
 
-[node name="Pelaajat" type="Node2D" parent="." unique_id=137960825]
-
-[node name="EsimerkkiPelaaja" type="CharacterBody2D" parent="Pelaajat" unique_id=1221456393]
-position = Vector2(1621, 1313)
-metadata/_edit_group_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pelaajat/EsimerkkiPelaaja" unique_id=1231413733]
-rotation = -1.5707964
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_75ljs")
-animation = &"idle"
+[node name="Players" type="Node2D" parent="." unique_id=137960825]
 
 [node name="Camera" parent="." unique_id=1767958031 instance=ExtResource("7_k6fn7")]
-position = Vector2(1191, 1204)
+position = Vector2(1152, 1176)
 bounds = Rect2(0, 0, 2260, 1740)
 
-[node name="HUD" type="Control" parent="." unique_id=742237922]
+[node name="HUD" type="Control" parent="Camera" unique_id=742237922]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 103.0
-offset_bottom = 102.0
+offset_left = -1191.0
+offset_top = -1204.0
+offset_right = -1088.0
+offset_bottom = -1102.0
 
-[node name="NextNode" type="Button" parent="HUD" unique_id=2143144358]
+[node name="PlayTurn" type="Button" parent="Camera/HUD" unique_id=2143144358]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_left = 1734.0
 offset_top = 1440.0
 offset_right = 2118.0
 offset_bottom = 1690.0
-text = "Liiku seuraavaan"
+text = "Pelaa vuoro"
 
-[node name="TeamsList" type="VBoxContainer" parent="HUD" unique_id=1062322931]
+[node name="NextTurn" type="Button" parent="Camera/HUD" unique_id=1995217392]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 1525.0
-offset_top = 1074.0
-offset_right = 1924.0
-offset_bottom = 1459.0
+offset_left = 1540.0
+offset_top = 1519.0
+offset_right = 2116.0
+offset_bottom = 1685.0
+text = "Seuraava vuoro
+"
+
+[node name="InfoPanel" type="PanelContainer" parent="Camera/HUD" unique_id=1639905897]
+layout_mode = 0
+offset_left = 1935.0
+offset_top = 692.0
+offset_right = 2127.0
+offset_bottom = 1012.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hudpanel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera/HUD/InfoPanel" unique_id=823667467]
+layout_mode = 2
+
+[node name="Vuoro" type="HBoxContainer" parent="Camera/HUD/InfoPanel/VBoxContainer" unique_id=2062678881]
+layout_mode = 2
+
+[node name="VuoroLabel" type="Label" parent="Camera/HUD/InfoPanel/VBoxContainer/Vuoro" unique_id=563328328]
+layout_mode = 2
+text = "Vuoro:"
+
+[node name="VuoroNumero" type="Label" parent="Camera/HUD/InfoPanel/VBoxContainer/Vuoro" unique_id=225456145]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="TeamsList" type="VBoxContainer" parent="Camera/HUD/InfoPanel/VBoxContainer" unique_id=1923441244]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TaskPopup" type="CanvasLayer" parent="." unique_id=350681669]
+unique_name_in_owner = true
+layer = 10
+
+[node name="Dim" type="ColorRect" parent="TaskPopup" unique_id=1047788588]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Center" type="CenterContainer" parent="TaskPopup" unique_id=1707609101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="TaskPopup/Center" unique_id=2086735039]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_taskpopup")
+
+[node name="VBox" type="VBoxContainer" parent="TaskPopup/Center/Panel" unique_id=1109534322]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TaskTeam" type="Label" parent="TaskPopup/Center/Panel/VBox" unique_id=1867864354]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Vuorossa: Joukkue"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TaskTitle" type="Label" parent="TaskPopup/Center/Panel/VBox" unique_id=1178309974]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Tehtävä"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TaskText" type="Label" parent="TaskPopup/Center/Panel/VBox" unique_id=280042726]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Tehtävän kuvaus"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TaskDrinks" type="Label" parent="TaskPopup/Center/Panel/VBox" unique_id=1751137732]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 28
+text = "Juo 1 huurteinen"
+horizontal_alignment = 1
+
+[node name="TaskClock" type="Label" parent="TaskPopup/Center/Panel/VBox" unique_id=1207312894]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0.000"
+horizontal_alignment = 1
+
+[node name="TaskStart" type="Button" parent="TaskPopup/Center/Panel/VBox" unique_id=1949956628]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Aloita tehtävä"
+
+[node name="TaskDone" type="Button" parent="TaskPopup/Center/Panel/VBox" unique_id=456924395]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Valmis"
+
+[node name="EndScreen" type="CanvasLayer" parent="." unique_id=202061898]
+unique_name_in_owner = true
+layer = 20
+visible = false
+
+[node name="Background" type="ColorRect" parent="EndScreen" unique_id=662201248]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.07, 0.92)
+
+[node name="Center" type="CenterContainer" parent="EndScreen" unique_id=708856240]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="EndScreen/Center" unique_id=1818501360]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_taskpopup")
+
+[node name="VBox" type="VBoxContainer" parent="EndScreen/Center/Panel" unique_id=1669816328]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EndTitle" type="Label" parent="EndScreen/Center/Panel/VBox" unique_id=896477308]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Peli päättyi!"
+horizontal_alignment = 1
+
+[node name="EndWinner" type="Label" parent="EndScreen/Center/Panel/VBox" unique_id=337938484]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 28
+text = "Voittaja: Joukkue"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EndResults" type="GridContainer" parent="EndScreen/Center/Panel/VBox" unique_id=862298786]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="Buttons" type="HBoxContainer" parent="EndScreen/Center/Panel/VBox" unique_id=1339383145]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="EndNewGame" type="Button" parent="EndScreen/Center/Panel/VBox/Buttons" unique_id=1587314386]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Uusi peli"
+
+[node name="EndQuit" type="Button" parent="EndScreen/Center/Panel/VBox/Buttons" unique_id=1069515990]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Lopeta"

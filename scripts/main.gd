@@ -1,6 +1,6 @@
 extends Node2D
 
-var cities = ["Jyväskylä", "Tampere", "Helsinki", "Turku", "Oulu", "Kuopio", "Joensuu"]
+var cities = ["Jyväskylä"] # Currently playable cities
 var jkl = preload("res://scenes/Jyväskylä.tscn")
 var tampere = preload("res://scenes/Tampere.tscn")
 var team_names: Array[String] = [] # Easy access to names, mostly for debugging.
@@ -22,13 +22,18 @@ func instansiate_menu_teams():
 # Setup teams. Ignore empty ones.
 func setup_teams():
 	for team in get_node("Menu/Teams").get_children():
-		var team_name = team.get_node("Name")
+		var team_name = team.get_node("Name").text
 		var team_size = team.get_node("Size")
-		if team_name.text == "" or int(team_size.text) < 1:
+		if team_name == "" or int(team_size.text) < 1:
+			print_debug("Skipping empty team name")
 			continue
-		team_names.append(team_name.text)
-		var new_team: Node = Node.new()
-		new_team.add_child(team_name.duplicate())
+		if team_names.find(team_name) != -1:
+			print_debug("Skipping same name team")
+			continue
+		team_names.append(team_name)
+		
+		var new_team := Node.new()
+		new_team.name = team_name
 		new_team.add_child(team_size.duplicate())
 		teams_info.add_child(new_team)
 	print_debug("Setup teams:", team_names)
@@ -37,6 +42,7 @@ func setup_teams():
 func add_team_to_hud(hud_list: Control, team_name: String):
 	# TODO: Polish HUD to look good.
 	var team = Label.new()
+	team.name = team_name # Lets the city scene find the label by team name
 	team.text = team_name
 	team.set_size(Vector2(200, 30))
 	team.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -51,12 +57,23 @@ func _on_start_pressed():
 	
 	var kaupunki = jkl.instantiate()
 	add_child(kaupunki)
+	kaupunki.new_game_requested.connect(_on_new_game_requested.bind(kaupunki))
 	
-	var hud_teamslist = kaupunki.get_node("HUD/TeamsList")
+	var hud_teamslist = kaupunki.get_node("%TeamsList")
 	for team_name in team_names:
 		add_team_to_hud(hud_teamslist, team_name)
 	
 	menu.visible = false
+
+
+# Back to the menu with the same team inputs, ready for a new game
+func _on_new_game_requested(kaupunki: Node) -> void:
+	kaupunki.queue_free()
+	for team in teams_info.get_children():
+		teams_info.remove_child(team) # Remove now so the names are free for the next setup_teams()
+		team.queue_free()
+	team_names.clear()
+	menu.visible = true
 
 
 func _ready():

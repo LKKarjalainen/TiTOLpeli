@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wddudtp7p17t"
-path="res://.godot/imported/red-pacman.png-da8b7cfbb97008da31e030a62150cede.ctex"
+uid="uid://2nkr2bpkf8yj"
+path="res://.godot/imported/asteriski.png-4c5fcb838b75b1dc7390cd8ad593479e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/players/red-pacman.png"
-dest_files=["res://.godot/imported/red-pacman.png-da8b7cfbb97008da31e030a62150cede.ctex"]
+source_file="res://assets/player_icons/asteriski.png"
+dest_files=["res://.godot/imported/asteriski.png-4c5fcb838b75b1dc7390cd8ad593479e.ctex"]
 
 [params]
 

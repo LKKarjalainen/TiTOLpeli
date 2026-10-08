@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bxeheuggv8vxc" path="res://assets/cities/Tampere.png" id="1_t3ppg"]
 [ext_resource type="Script" uid="uid://db75p162dfibh" path="res://scripts/route.gd" id="2_58j6p"]
 [ext_resource type="PackedScene" uid="uid://cbj03hd260s4b" path="res://scenes/map_point.tscn" id="3_brgbt"]
-[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/players/linkki-logo-simple.svg" id="4_mfpiu"]
-[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/players/red-pacman.png" id="5_0apd4"]
+[ext_resource type="Texture2D" uid="uid://x3f5bewtitgu" path="res://assets/player_icons/linkki.svg" id="4_mfpiu"]
+[ext_resource type="Texture2D" uid="uid://wddudtp7p17t" path="res://assets/player_icons/red-pacman.png" id="5_0apd4"]
 [ext_resource type="PackedScene" uid="uid://cdub6gcyc0ytv" path="res://scenes/camera.tscn" id="6_fw1rj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4dd32"]
@@ -13,7 +13,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_mfpiu")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -21,7 +21,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_0apd4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"move",
 "speed": 5.0
 }]
