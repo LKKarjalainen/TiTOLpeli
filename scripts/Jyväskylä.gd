@@ -11,10 +11,17 @@ const TASKS_PATH := "res://assets/tasks/jyvaskyla.json"
 
 var icon_paths = [
 	"res://assets/player_icons/asteriski.png",
+	"res://assets/player_icons/blanko.png",
+	"res://assets/player_icons/dumppi.jpg",
+	"res://assets/player_icons/infå.jpg",
 	"res://assets/player_icons/linkki.svg",
 	"res://assets/player_icons/luuppi.jpg",
-	"res://assets/player_icons/red-pacman.png",
+	"res://assets/player_icons/serveri.jpg",
+	"res://assets/player_icons/skripti.jpg",
 	"res://assets/player_icons/tekis.png",
+	"res://assets/player_icons/tukydata.jpg",
+	"res://assets/player_icons/tutti.jpg",
+	"res://assets/player_icons/ynnä.jpg"
 	]
 
 var turn: int = 0
@@ -64,7 +71,10 @@ func _load_tasks() -> void:
 	if json.parse(file.get_as_text()) != OK:
 		push_error("%s line %d: %s" % [TASKS_PATH, json.get_error_line(), json.get_error_message()])
 		return
-	tasks = json.data
+	if not (json.data is Dictionary and json.data.get("tasks") is Array):
+		push_error("%s: expected an object with a \"tasks\" array" % TASKS_PATH)
+		return
+	tasks = json.data["tasks"]
 
 func _format_hud():
 	%NextTurn.pressed.connect(_next_turn)
@@ -100,7 +110,7 @@ func _show_task_popup(task: Dictionary, player: Player) -> void:
 	var drinks: float = task.get("huurteiset", 0)
 	drinks *= float(player.get_node("Size").text)
 	%TaskDrinks.visible = drinks > 0.0
-	%TaskDrinks.text = "Juo %d %s" % [drinks, "huurteinen" if drinks == 1 else "huurteista"]
+	%TaskDrinks.text = "Juo %s %s" % [String.num(drinks, 2).trim_suffix(".0"), "huurteinen" if drinks == 1 else "huurteista"]
 	%TaskClock.text = _format_time(0)
 	%TaskStart.visible = true
 	%TaskDone.visible = false

@@ -1,24 +1,38 @@
-[
-  {
-	"id": "Matka juoma",
-	"text": "Matka on tylsä ja päätit korkata",
-	"huurteiset": 1
-  },
-  {
-	"id": "Kaveri tarjoo",
-	"text": "Kaverisi tarjoaa juoman",
-	"huurteiset": 0.5
-  },
-  {
-	"id": "Vanha setä tarjoo",
-	"text": "Vanha setämies tarjoilee juomia ja kaikki ilmainen viina on pakko juoda",
-	"huurteiset": 1
-  },
-  {
-	"id": "Alkoholin voimaa",
-	"text": "Holi antaa sinulle voimaa! Pelaat toisen vuoron heti perään",
-	"effects": [
-	  { "type": "extra_turn", "target": "self" }
-	]
-  }
-]
+{
+  "_comment": "Tehtävät: id = otsikko, text = kuvaus, huurteiset = juomat per joukkueen jäsen, effects = erikoisefektit. _-alkuiset avaimet ovat kommentteja.", 
+  "_huurteiset_comment": "2.5 on about maksimi mitää halutaan antaa. Ihmiset kuolee muuten.",
+  "tasks": [
+	{
+	  "id": "Matka juoma",
+	  "text": "Matka on tylsä ja päätit korkata.",
+	  "huurteiset": 1
+	},
+	{
+	  "id": "Kaveri tarjoo",
+	  "text": "Kaverisi tarjoaa juoman.",
+	  "huurteiset": 0.5
+	},
+	{
+	  "id": "Vanha setä tarjoo",
+	  "text": "Vanha setämies tarjoilee juomia ja kaikki ilmainen viina on pakko juoda.",
+	  "huurteiset": 1
+	},
+	{
+	  "id": "Tekisläinen tulee vastaan",
+	  "text": "Vastaasi tulee tekisläinen ja sehän tarkoittaa välitöntä desitystä. (voit vaihtoehtoisesti suorittaa desityksen huurteisten sijaan.)",
+	  "huurteiset": 2.5
+	},
+	{
+	  "id": "Dumppari tulee vastaan",
+	  "text": "Onko se keltään pois, jos minä pari lonkeroa otan?",
+	  "huurteiset": 2
+	},
+	{
+	  "id": "Alkoholin voimaa",
+	  "text": "Holi antaa sinulle voimaa! Pelaat toisen vuoron heti perään.",
+	  "effects": [
+		{ "type": "extra_turn", "target": "self" }
+	  ]
+	}
+  ]
+}
